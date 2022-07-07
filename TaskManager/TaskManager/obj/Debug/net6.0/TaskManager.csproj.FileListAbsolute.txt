@@ -1,0 +1,15 @@
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\TaskManager.exe
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\TaskManager.deps.json
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\TaskManager.runtimeconfig.json
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\TaskManager.dll
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\TaskManager.pdb
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.csproj.AssemblyReference.cache
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.AssemblyInfoInputs.cache
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.AssemblyInfo.cs
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.csproj.CoreCompileInputs.cache
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.dll
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\refint\TaskManager.dll
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.pdb
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.genruntimeconfig.cache
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\ref\TaskManager.dll
