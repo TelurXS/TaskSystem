@@ -1,4 +1,4 @@
-Задачи Олега:
+﻿Задачи Олега:
 
 Task Manager
 	
@@ -6,17 +6,9 @@ Task Manager
 	- Редактирование заданий
 	- Удаление заданий
 
-namespace TaskSystem
+Обязаьельства Task`a:
+	Хранить сообщение
+	Хранить время выполнение
+	Хранить состояние задания (Ожидание, выполнено)
 
-	abstract class Task { string Message, DateTime Date }
-
-	class SoundAlert : Task { string SoundName }
-
-	class ConsoleLog : Task {}
-
-	class Menu {}
-
-Tasks.json
-[{Task},{Task},{Task}]
-
-List<Task> 
+Сделать унаследованные классы от Task, например: SoundAlertTask, ConsoleLogTask, AlertTask и тд...
