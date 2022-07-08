@@ -11,7 +11,14 @@ namespace TaskSystem
         public SoundAlert(string message, DateTime date) : base(message, date) {  }
         public override bool CanExecute()
         {
-            return true;
+            if (Condition.ToString() == "Expectation")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override void Execute()

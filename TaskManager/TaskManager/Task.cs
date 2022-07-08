@@ -8,19 +8,21 @@ namespace TaskSystem
 {
     abstract class Task
     {
-        public string message;
-        public DateTime date;
-
+        public string Message;
+        public DateTime Date;
+        public Condition Condition;
         public Task()
         {
-            message = null;
-            date = DateTime.Now;
+            Message = null;
+            Date = DateTime.Now;
+            Condition = Condition.Expectation;
         }
 
         public Task(string message, DateTime date)
         {
-            this.message = message;
-            this.date = date;
+            this.Message = message;
+            this.Date = date;
+            Condition = Condition.Expectation;
         }
 
         public abstract void Execute();
