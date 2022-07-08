@@ -12,10 +12,15 @@ namespace TaskSystem
         public static void Main() 
         {
             TaskManager manager = new TaskManager();
-            
+            TaskManager manager2 = new TaskManager();
+
             DateTime dateTime = DateTime.Now;
-            
+
             manager.SetTask("Pon", dateTime);
+            manager.Save();
+            manager = TaskManager.Load();
+            //manager.SetTask("Gal", dateTime);
+            //manager.Save();
         }
     }
 }

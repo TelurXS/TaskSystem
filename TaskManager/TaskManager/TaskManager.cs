@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace TaskSystem
 {
@@ -20,17 +22,24 @@ namespace TaskSystem
         public void SetTask(string message, DateTime dateTime)
         {
             Tasks.Add(new SoundAlert(message, dateTime));
-            Save();
         }
 
         public void Save()
         {
-            File.WriteAllText(ToPath("Tasks"), JsonConvert.SerializeObject(Tasks));
+            File.WriteAllText(ToPath(), JsonConvert.SerializeObject(Tasks));
         }
 
-        private static string ToPath(string name)
+        public static TaskManager Load()
         {
-            return @"../../../" + name + ".json";
+            return JsonConvert.DeserializeObject<TaskManager>(File.ReadAllText(ToPath()));
         }
+
+        private static string ToPath()
+        {
+            return @"../../../Tasks.json";
+        }
+
+       
+          
     }
 }
