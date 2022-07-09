@@ -1,42 +1,50 @@
-﻿using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using AsyncTask = System.Threading.Tasks.Task;
 
 namespace TaskExecutor
 {
-    class TaskExecutor
+    public class TaskExecutor
     {
         public List<Task> Tasks { get; protected set; }
         public int ExecuteDelay { get; protected set; }
+        public string TasksPath { get; protected set; }
 
-        public TaskExecutor(int executeDelay, List<Task> tasks)
+        public Action<List<Task>>? OnCycleLeave;
+
+        public TaskExecutor(int executeDelay, string path)
         {
             ExecuteDelay = executeDelay;
-            Tasks = tasks;
+            TasksPath = path;
+            Tasks = new List<Task>();
         }
 
-        public async AsyncTask RunAsync() 
+        public async AsyncTask Run() 
         {
             while (true) 
             {
-                Console.Clear();
-                Console.WriteLine("Now: " + DateTime.Now);
-                PrintTasks();
+                LoadTasks();
 
                 foreach(Task task in Tasks) 
                 {
                     task.TryExecute();
                 }
 
+                SaveTasks();
+
+                OnCycleLeave?.Invoke(Tasks);
                 await AsyncTask.Delay(ExecuteDelay * 1000);
             }
         }
 
-        public void PrintTasks() 
+        public void LoadTasks() 
         {
-            foreach(Task task in Tasks) 
-            {
-                Console.WriteLine(task);
-            }
+            Tasks = new TaskParser(TasksPath).Load();
         }
+
+        public void SaveTasks() 
+        {
+            new TaskParser(TasksPath).Save(Tasks);
+        }
+
     }
 }
