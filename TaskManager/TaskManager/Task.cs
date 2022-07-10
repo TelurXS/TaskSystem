@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace TaskSystem
 {
-    abstract class Task
+    class Task
     {
+        public string Type;
         public string Message;
-        public DateTime Date;
-        public Condition Condition;
+        public DateTime Time;
+        public TaskState State;
+        
         public Task()
         {
+            Type = "SoundAlert";
             Message = null;
-            Date = DateTime.Now;
-            Condition = Condition.Expectation;
+            Time = DateTime.Now;
+            State = TaskState.Expectation;
         }
 
         public Task(string message, DateTime date)
         {
+            Type = "SoundAlert";
             this.Message = message;
-            this.Date = date;
-            Condition = Condition.Expectation;
+            this.Time = date;
+            State = TaskState.Expectation;
         }
-
-        public abstract void Execute();
-        public abstract bool CanExecute();
-
     }
 }

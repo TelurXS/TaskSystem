@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskSystem
 {   
-    enum Condition
+    enum TaskState
     {
         Expectation,
         Performed
