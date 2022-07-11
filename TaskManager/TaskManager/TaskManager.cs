@@ -70,12 +70,14 @@ namespace TaskSystem
             for (int i = 0; i < Tasks.LongCount(); i++)
             {
                 Console.WriteLine();
+
                 Console.WriteLine("+++++++++++++++++++++++");
                 Console.WriteLine("Type: " + Tasks[i].Type);
                 Console.WriteLine("Message: " + Tasks[i].Message);
                 Console.WriteLine("Time: " + Tasks[i].Time);
                 Console.WriteLine("State: " + Tasks[i].State);
                 Console.WriteLine("+++++++++++++++++++++++");
+
                 Console.WriteLine();
             }
         }

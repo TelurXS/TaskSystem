@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-
 namespace TaskSystem
 {
     class Program
@@ -31,6 +30,15 @@ namespace TaskSystem
 
                 if (choice == "1")
                 {
+                    try
+                    {
+                        manager.SetTasks(TaskManager.Load());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("json file created");
+                    }
+                    
                     Console.Write("Enter note: ");
                     string message = Console.ReadLine();
 
@@ -39,6 +47,7 @@ namespace TaskSystem
                     manager.AddTask(message, date);
                     manager.Save();
                 }
+
                 try
                 {
                     manager.SetTasks(TaskManager.Load());
@@ -50,6 +59,7 @@ namespace TaskSystem
                     Console.WriteLine("Please create a task before working with data!");
                     continue;
                 }
+
                 if (choice == "2")
                 {
                     manager.SetTasks(TaskManager.Load());
