@@ -34,6 +34,8 @@
             this.RedrawButton = new System.Windows.Forms.Button();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.Synchronyze = new System.Windows.Forms.Button();
+            this.SelectFileButton = new System.Windows.Forms.Button();
+            this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // TasksLayoutGroup
@@ -56,9 +58,8 @@
             // NotifyIcon
             // 
             this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
-            this.NotifyIcon.Text = "NotifyIcon";
-            this.NotifyIcon.Visible = true;
-            this.NotifyIcon.DoubleClick += new System.EventHandler(this.NotifyIcon_DoubleClick);
+            this.NotifyIcon.Text = "Task Visualizer";
+            this.NotifyIcon.Click += new System.EventHandler(this.NotifyIcon_Click);
             // 
             // Synchronyze
             // 
@@ -70,14 +71,31 @@
             this.Synchronyze.UseVisualStyleBackColor = true;
             this.Synchronyze.Click += new System.EventHandler(this.Synchronyze_Click);
             // 
+            // SelectFileButton
+            // 
+            this.SelectFileButton.Location = new System.Drawing.Point(287, 12);
+            this.SelectFileButton.Name = "SelectFileButton";
+            this.SelectFileButton.Size = new System.Drawing.Size(130, 38);
+            this.SelectFileButton.TabIndex = 3;
+            this.SelectFileButton.Text = "Select File";
+            this.SelectFileButton.UseVisualStyleBackColor = true;
+            this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
+            // 
+            // OpenFileDialog
+            // 
+            this.OpenFileDialog.FileName = "Select Task File";
+            this.OpenFileDialog.Title = "Select Task File";
+            // 
             // TaskVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 453);
+            this.Controls.Add(this.SelectFileButton);
             this.Controls.Add(this.Synchronyze);
             this.Controls.Add(this.RedrawButton);
             this.Controls.Add(this.TasksLayoutGroup);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TaskVisualizerForm";
             this.Text = "Task Visualizer";
@@ -92,5 +110,7 @@
         private Button RedrawButton;
         private NotifyIcon NotifyIcon;
         private Button Synchronyze;
+        private Button SelectFileButton;
+        private OpenFileDialog OpenFileDialog;
     }
 }

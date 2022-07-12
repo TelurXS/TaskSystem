@@ -1,0 +1,8 @@
+[
+  {
+    "Type": "SoundAlertTask",
+    "Message": "../../../Resources/Notification.wav",
+    "Date": "2022-07-12T18:22:30.4242769+02:00",
+    "Condition": 1
+  }
+]

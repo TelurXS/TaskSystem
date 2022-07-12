@@ -102,17 +102,27 @@ namespace TaskExecutor
             }
         }
 
-        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
-        {
-            Show();
-            this.WindowState = FormWindowState.Normal;
-            NotifyIcon.Visible = false;
-        }
-
         private void Synchronyze_Click(object sender, EventArgs e)
         {
             Executor.LoadTasks();
             Redraw(Executor.Tasks);
+        }
+
+        private void NotifyIcon_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            NotifyIcon.Visible = false;
+        }
+
+        private void SelectFileButton_Click(object sender, EventArgs e)
+        {
+            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Executor.Path = OpenFileDialog.FileName;
+                Executor.LoadTasks();
+                Redraw(Executor.Tasks);
+            }
         }
     }
 }

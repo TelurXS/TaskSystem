@@ -7,44 +7,60 @@ namespace TaskExecutor
     {
         public List<Task> Tasks { get; protected set; }
         public int ExecuteDelay { get; protected set; }
-        public string TasksPath { get; protected set; }
+
+        public string Path { get; set; }
 
         public Action<List<Task>>? OnCycleLeave;
+
 
         public TaskExecutor(int executeDelay, string path)
         {
             ExecuteDelay = executeDelay;
-            TasksPath = path;
+            Path = path;
+            Tasks = new List<Task>();
+        }
+
+        public TaskExecutor(Config config)
+        {
+            ExecuteDelay = config.ExecutionDelay;
+            Path = config.DefaultPath;
             Tasks = new List<Task>();
         }
 
         public async AsyncTask Run() 
         {
             while (true) 
-            {
-                LoadTasks();
-
-                foreach(Task task in Tasks) 
+            {                          
+                if (TryLoadTasks(out List<Task> tasks)) 
                 {
-                    task.TryExecute();
-                }
+                    Tasks = tasks;
 
-                SaveTasks();
+                    foreach (Task task in Tasks)
+                    {
+                        task.TryExecute();
+                    }
+
+                    SaveTasks();
+                }
 
                 OnCycleLeave?.Invoke(Tasks);
                 await AsyncTask.Delay(ExecuteDelay * 1000);
             }
         }
 
+        public bool TryLoadTasks(out List<Task> tasks) 
+        {
+            return new TaskParser(Path).TryLoad(out tasks);
+        }
+
         public void LoadTasks() 
         {
-            Tasks = new TaskParser(TasksPath).Load();
+            Tasks = new TaskParser(Path).Load();
         }
 
         public void SaveTasks() 
         {
-            new TaskParser(TasksPath).Save(Tasks);
+            new TaskParser(Path).Save(Tasks);
         }
-
     }
 }

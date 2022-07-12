@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\TaskExecutor.csproj": {}
+    "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\TaskExecutor.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\TaskExecutor.csproj": {
+    "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\TaskExecutor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\TaskExecutor.csproj",
+        "projectUniqueName": "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\TaskExecutor.csproj",
         "projectName": "TaskExecutor",
-        "projectPath": "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\TaskExecutor.csproj",
+        "projectPath": "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\TaskExecutor.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\obj\\",
+        "outputPath": "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "JsonSubTypes": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"

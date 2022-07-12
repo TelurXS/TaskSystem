@@ -11,14 +11,60 @@ namespace TaskExecutor
             Path = path;
         }
 
-        public List<Task>? Load() 
+        public bool TryLoad(out List<Task> tasks) 
         {
-            return JsonConvert.DeserializeObject<List<Task>>(File.ReadAllText(Path));
+            if (File.Exists(Path)) 
+            {
+                try
+                {
+                    string json = File.ReadAllText(Path);
+                    tasks = JsonConvert.DeserializeObject<List<Task>>(json);
+                    return true;
+                }
+                catch
+                {
+                    tasks = new List<Task>();
+                    return false;
+                }
+            }
+            else 
+            {
+                tasks = new List<Task>();
+                return false;
+            }
         }
 
-        public void Save(List<Task> tasks) 
+        public List<Task>? Load()
         {
-            File.WriteAllText(Path, JsonConvert.SerializeObject(tasks));
+            if (File.Exists(Path))
+            {
+                try 
+                {
+                    string json = File.ReadAllText(Path);
+
+                    return JsonConvert.DeserializeObject<List<Task>>(json);
+                }
+                catch (JsonReaderException ex) 
+                {
+                    MessageBox.Show("This is not Task file", "Something wrong...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return new List<Task>();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Something wrong...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return new List<Task>();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"File ({Path}) is not exsist", "Something wrong...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return new List<Task>();
+            }
+        }
+
+        public void Save(List<Task> tasks)
+        {
+            File.WriteAllText(Path, JsonConvert.SerializeObject(tasks, Formatting.Indented));
         }
     }
 }

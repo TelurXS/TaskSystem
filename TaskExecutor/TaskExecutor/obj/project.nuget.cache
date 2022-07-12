@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4yc9z8UEQMa5T8pNxj9xzSVxJmoWi5uwHINSpSFHtlpxp7zdWflMcV6w8UyfHrYvxtR720jRd8aEWa9xuehZng==",
+  "dgSpecHash": "/TdIz4A7XWo49UAsJxaJ1eCLAtxmjoUt6RDa1tHMgEXXA213JqOOyWRT73dHuV3ew36PzxSJmkmbisd4uBtObg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\C#\\TaskVisualizerTest\\TaskVisualizerTest\\TaskExecutor.csproj",
+  "projectFilePath": "D:\\Projects\\Examen\\TaskSystem\\TaskExecutor\\TaskExecutor\\TaskExecutor.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\jsonsubtypes\\1.9.0\\jsonsubtypes.1.9.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []

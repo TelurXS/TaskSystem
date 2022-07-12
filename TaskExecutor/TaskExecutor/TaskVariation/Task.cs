@@ -1,24 +1,21 @@
-﻿using Newtonsoft.Json;
+﻿using JsonSubTypes;
+using Newtonsoft.Json;
 
 namespace TaskExecutor
 {
-    public enum TaskState
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public abstract class Task
     {
-        Awaiting,
-        Executed
-    }
-
-    public class Task
-    {
-        [JsonIgnore] public string Type { get; protected set; }
-        [JsonIgnore] public Bitmap Icon { get; protected set; }
+        [JsonProperty("Type")] public abstract string Type { get; }
         [JsonProperty("Message")] public string Message { get; protected set; }
         [JsonProperty("Date")] public DateTime ExecutionTime { get; protected set; }
         [JsonProperty("Condition")] public TaskState State { get; protected set; }
 
+        [JsonIgnore] public Bitmap Icon { get; protected set; }
+
+
         public Task(string message, DateTime executionTime)
         {
-            Type = "Base Task";
             Icon = Properties.Resources.Task;
             Message = message;
             ExecutionTime = executionTime;

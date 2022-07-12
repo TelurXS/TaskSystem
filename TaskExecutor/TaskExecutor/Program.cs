@@ -8,7 +8,9 @@ namespace TaskExecutor
         {
             ApplicationConfiguration.Initialize();
 
-            TaskExecutor executor = new TaskExecutor(10, @"../../../Tasks.json");
+            Config config = Config.Load(@"../../../Config/Config.json");
+
+            TaskExecutor executor = new TaskExecutor(config);
 
             TaskVisualizerForm form = new TaskVisualizerForm(executor);
 
