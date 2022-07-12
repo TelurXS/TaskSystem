@@ -41,7 +41,7 @@ namespace TaskExecutor
             TaskPanel.BackColor = SystemColors.ControlLight;
             TaskPanel.Location = new Point(3, 3);
             TaskPanel.Name = "TaskPanel";
-            TaskPanel.Size = new Size(755, 80);
+            TaskPanel.Size = new Size(730, 80);
             TaskPanel.TabIndex = 0;
 
             TaskTypeLabel.AutoSize = true;
@@ -54,7 +54,7 @@ namespace TaskExecutor
 
             StateLabel.AutoSize = true;
             StateLabel.Font = new Font("Yu Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            StateLabel.Location = new Point(479, 28);
+            StateLabel.Location = new Point(460, 28);
             StateLabel.Name = "StateLabel";
             StateLabel.Size = new Size(108, 26);
             StateLabel.TabIndex = 3;
@@ -62,7 +62,7 @@ namespace TaskExecutor
 
             TaskExecutionTimeLabel.AutoSize = true;
             TaskExecutionTimeLabel.Font = new Font("Yu Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TaskExecutionTimeLabel.Location = new Point(593, 31);
+            TaskExecutionTimeLabel.Location = new Point(570, 31);
             TaskExecutionTimeLabel.Name = "TaskExecutionTimeLabel";
             TaskExecutionTimeLabel.Size = new Size(159, 22);
             TaskExecutionTimeLabel.TabIndex = 2;

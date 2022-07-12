@@ -40,6 +40,7 @@
             // 
             // TasksLayoutGroup
             // 
+            this.TasksLayoutGroup.AutoScroll = true;
             this.TasksLayoutGroup.Location = new System.Drawing.Point(12, 56);
             this.TasksLayoutGroup.Name = "TasksLayoutGroup";
             this.TasksLayoutGroup.Size = new System.Drawing.Size(758, 385);
