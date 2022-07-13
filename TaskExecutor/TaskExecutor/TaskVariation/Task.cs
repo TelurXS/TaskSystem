@@ -7,17 +7,17 @@ namespace TaskExecutor
     public abstract class Task
     {
         [JsonProperty("Type")] public abstract string Type { get; }
-        [JsonProperty("Message")] public string Message { get; protected set; }
+        [JsonProperty("Arguments")] public string Arguments { get; protected set; }
         [JsonProperty("Date")] public DateTime ExecutionTime { get; protected set; }
         [JsonProperty("Condition")] public TaskState State { get; protected set; }
 
         [JsonIgnore] public Bitmap Icon { get; protected set; }
 
 
-        public Task(string message, DateTime executionTime)
+        public Task(string arguments, DateTime executionTime)
         {
             Icon = Properties.Resources.Task;
-            Message = message;
+            Arguments = arguments;
             ExecutionTime = executionTime;
             State = TaskState.Awaiting;
         }
@@ -41,9 +41,8 @@ namespace TaskExecutor
         {
             if (State == TaskState.Awaiting)
             {
-                MessageBox.Show(Message, Type, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Arguments, Type, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 State = TaskState.Executed;
-                return;
             }
             else throw new ArgumentException("Task can`t execute twise");
         }
@@ -57,6 +56,20 @@ namespace TaskExecutor
             }
 
             return false;
+        }
+
+        public virtual string ShortDescription(int erraseFromIndex = 53) 
+        {
+            if (Arguments.Length <= 56)
+            {
+                return Arguments;
+            }
+            else
+            {
+                string result = Arguments.Remove(erraseFromIndex);
+                result += "...";
+                return result;
+            }
         }
     }
 }

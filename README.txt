@@ -14,7 +14,7 @@ State:
 	(Готово)
 	- MessageTask - открывает диалоговое окно с сообщением (Arguments: "сообщение")
 	- SoundAlertTask - проигрывает определённый звук в формате .wav (Arguments: "путь/к/звуку.wav")
+	- OpenProgramTask - отрывает определённую программу (Arguments: "путь/к/программе.exe")
 	
 	(Концепт)
-	- OpenProgramTask - отрывает определённую программу (Arguments: "путь/к/программе.exe")
 	- MessageAndSoundAlert - сместь MessageTask и SoundAlertTask (Arguments: "путь/к/звуку.wav|сообщение")

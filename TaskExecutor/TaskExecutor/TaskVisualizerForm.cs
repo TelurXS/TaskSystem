@@ -2,7 +2,7 @@ namespace TaskExecutor
 {
     public partial class TaskVisualizerForm : Form
     {
-        public TaskExecutor Executor { get; set; }
+        public TaskExecutor Executor { get; protected set; }
 
 
         public TaskVisualizerForm(TaskExecutor executor)
@@ -19,11 +19,11 @@ namespace TaskExecutor
 
             foreach(Task task in tasks) 
             {
-                TasksLayoutGroup.Controls.Add(CreateTaskPanel(task));
+                TasksLayoutGroup.Controls.Add(CreateVisualElement(task));
             }
         }
 
-        public Panel CreateTaskPanel(Task task)
+        public Panel CreateVisualElement(Task task)
         {
             Panel TaskPanel = new Panel();
             Label TaskLabel = new Label();
@@ -74,7 +74,7 @@ namespace TaskExecutor
             TaskLabel.Name = "TaskLabel";
             TaskLabel.Size = new Size(85, 23);
             TaskLabel.TabIndex = 1;
-            TaskLabel.Text = task.Message;
+            TaskLabel.Text = task.ShortDescription();
 
             TaskIcon.BackColor = SystemColors.Menu;
             TaskIcon.Location = new Point(2, 2);
@@ -95,7 +95,7 @@ namespace TaskExecutor
 
         private void TaskVisualizerForm_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (WindowState == FormWindowState.Minimized)
             {
                 Hide();
                 NotifyIcon.Visible = true;

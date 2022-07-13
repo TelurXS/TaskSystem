@@ -4,7 +4,7 @@ namespace TaskExecutor
 {
     public class Config
     {
-        public static Config Default => new Config(10, @"../../../Tasks.json");
+        public static Config Default => new Config(30, @"../../../../../Tasks/Tasks.json");
 
         public static Config Current { get; protected set; } = Default;
 

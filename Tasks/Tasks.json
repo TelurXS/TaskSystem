@@ -1,0 +1,26 @@
+[
+  {
+    "Type": "MessageTask",
+    "Arguments": "Hello world!fffffffffffffffffffffffffffffffffffffffffffff",
+    "Date": "2022-07-08T10:43:33.4242769+02:00",
+    "Condition": 0
+  },
+  {
+    "Type": "SoundAlertTask",
+    "Arguments": "../../../Resources/Notification.wav",
+    "Date": "2022-07-12T18:22:30.4242769+02:00",
+    "Condition": 0
+  },
+  {
+    "Type": "SoundAndMessageTask",
+    "Arguments": "../../../Resources/Notification.wav|Hello!",
+    "Date": "2022-07-13T16:48:30.4242769+02:00",
+    "Condition": 1
+  },
+  {
+    "Type": "OpenProgramTask",
+    "Arguments": "D:/Programs/Notepad++/notepad++.exe",
+    "Date": "2022-07-12T22:47:30.4242769+02:00",
+    "Condition": 0
+  }
+]

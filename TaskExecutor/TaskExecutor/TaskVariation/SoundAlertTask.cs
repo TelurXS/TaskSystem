@@ -9,7 +9,7 @@ namespace TaskExecutor
         public override string Type { get; } = nameof(SoundAlertTask);
 
 
-        public SoundAlertTask(string message, DateTime executionTime) : base(message, executionTime) 
+        public SoundAlertTask(string arguments, DateTime executionTime) : base(arguments, executionTime) 
         {
             Icon = Properties.Resources.Speaker;
         }
@@ -18,12 +18,11 @@ namespace TaskExecutor
         {
             if (State == TaskState.Awaiting)
             {
-                using (var soundPlayer = new SoundPlayer(Message))
+                using (var soundPlayer = new SoundPlayer(Arguments))
                 {
                     soundPlayer.Play();
                 }
                 State = TaskState.Executed;
-                return;
             }
             else throw new ArgumentException("Task can`t execute twise");
         }

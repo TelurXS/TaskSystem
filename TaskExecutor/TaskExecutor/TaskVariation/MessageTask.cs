@@ -8,7 +8,7 @@ namespace TaskExecutor
         public override string Type { get; } = nameof(MessageTask);
 
 
-        public MessageTask(string message, DateTime executionTime) : base(message, executionTime) 
+        public MessageTask(string arguments, DateTime executionTime) : base(arguments, executionTime) 
         {
             Icon = Properties.Resources.Latter;
         }
@@ -17,9 +17,8 @@ namespace TaskExecutor
         {
             if (State == TaskState.Awaiting)
             {
-                MessageBox.Show(Message, Type, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Arguments, Type, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 State = TaskState.Executed;
-                return;
             }
             else throw new ArgumentException("Task can`t execute twise");
         }

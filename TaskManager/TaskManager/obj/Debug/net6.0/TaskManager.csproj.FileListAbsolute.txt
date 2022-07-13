@@ -30,3 +30,5 @@ C:\Users\TurBIn\Documents\kr\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0
 C:\Users\TurBIn\Documents\kr\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.pdb
 C:\Users\TurBIn\Documents\kr\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.genruntimeconfig.cache
 C:\Users\TurBIn\Documents\kr\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\ref\TaskManager.dll
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Projects\Examen\TaskSystem\TaskManager\TaskManager\obj\Debug\net6.0\TaskManager.csproj.CopyComplete

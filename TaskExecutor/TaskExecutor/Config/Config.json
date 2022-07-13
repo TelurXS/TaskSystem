@@ -1,1 +1,4 @@
-{"ExecutionDelay":10,"DefaultPath":"../../../Tasks.json"}
+{
+  "ExecutionDelay": 10,
+  "DefaultPath": "../../../../../Tasks/Tasks.json"
+}
