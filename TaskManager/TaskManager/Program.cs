@@ -20,7 +20,8 @@ namespace TaskSystem
                 Console.WriteLine("1. Create a task");
                 Console.WriteLine("2. Edit task");
                 Console.WriteLine("3. Delete task");
-                Console.WriteLine("4. Show task");
+                Console.WriteLine("4. Remove Obsolete Tasks");
+                Console.WriteLine("5. Show task");
                 Console.WriteLine("=======================================");
 
                 string choice = Console.ReadLine();
@@ -38,13 +39,17 @@ namespace TaskSystem
                     {
                         Console.WriteLine("json file created");
                     }
+
                     
                     Console.Write("Enter note: ");
                     string message = Console.ReadLine();
 
+                    Console.WriteLine("Enter type:");
+                    string type = defenseFool.NewType();
+
                     DateTime date = defenseFool.NewDate();
 
-                    manager.AddTask(message, date);
+                    manager.AddTask(type ,message, date);
                     manager.Save();
                 }
 
@@ -62,34 +67,17 @@ namespace TaskSystem
 
                 if (choice == "2")
                 {
-                    manager.SetTasks(TaskManager.Load());
-
-                    Console.Write("Enter note: ");
-                    string oldMessage = Console.ReadLine();
-
-                    DateTime oldDate = defenseFool.NewDate();
-
-                    Console.Write("Enter new note: ");
-                    string newMessage = Console.ReadLine();
-
-                    DateTime newDate = defenseFool.NewDate();
-
-                    manager.EditTask(oldMessage, oldDate, newMessage, newDate);
-                    manager.Save();
+                    manager.EditTask();
                 }
                 else if (choice == "3")
                 {
-                    manager.SetTasks(TaskManager.Load());
-
-                    Console.Write("Enter note: ");
-                    string message = Console.ReadLine();
-
-                    DateTime date = defenseFool.NewDate();
-
-                    manager.DeleteTask(message, date);
-                    manager.Save();
+                    manager.DeleteTask();
                 }
                 else if (choice == "4")
+                {
+                    manager.RemoveObsoleteTasks();
+                }
+                else if (choice == "5")
                 {
                     manager.SetTasks(TaskManager.Load());
 

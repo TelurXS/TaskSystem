@@ -9,22 +9,22 @@ namespace TaskSystem
     class Task
     {
         public string Type;
-        public string Message;
+        public string Arguments;
         public DateTime Time;
         public TaskState State;
         
         public Task()
         {
-            Type = "SoundAlert";
-            Message = null;
+            Type = null;
+            Arguments = null;
             Time = DateTime.Now;
             State = TaskState.Expectation;
         }
 
-        public Task(string message, DateTime date)
+        public Task(string type, string arguments, DateTime date)
         {
-            Type = "SoundAlert";
-            this.Message = message;
+            this.Type = type;
+            this.Arguments = arguments;
             this.Time = date;
             State = TaskState.Expectation;
         }

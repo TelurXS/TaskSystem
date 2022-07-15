@@ -14,16 +14,15 @@ namespace TaskSystem
     {
         private List<Task> Tasks { get; set; }
 
-
         // Create functions
         public TaskManager()
         {
             Tasks = new List<Task>();
         }
 
-        public void AddTask(string message, DateTime date)
+        public void AddTask(string types, string arguments, DateTime date)
         {     
-            Tasks.Add(new Task(message, date));
+            Tasks.Add(new Task(types, arguments, date));
             Console.WriteLine("Success");
         }
 
@@ -34,33 +33,81 @@ namespace TaskSystem
 
 
         // Edit functions
-        public void EditTask(string oldMessage, DateTime oldDate, string newMessage, DateTime newDate)
+
+        public void EditTask()
         {
-            for (int i = 0; i < Tasks.LongCount(); i++)
+            SetTasks(TaskManager.Load());
+            DefenseFool defenseFool = new DefenseFool();
+
+            ReadTasks();
+
+            Console.WriteLine();
+            Console.WriteLine("Enter the [Task id] you want to edit: ");
+            int idTask = int.Parse(Console.ReadLine());
+
+            if (idTask <= Tasks.LongCount())
             {
-                if (Tasks[i].Message == oldMessage && Tasks[i].Time == oldDate) 
-                {
-                    Tasks[i].Message = newMessage;
-                    Tasks[i].Time = newDate;
-                    Console.WriteLine("Success");
-                    return;
-                }
+                Console.Write("Enter new note: ");
+                string argument = Console.ReadLine();
+
+                Console.WriteLine("Enter new type:");
+                string type = defenseFool.NewType();
+
+                DateTime time = defenseFool.NewDate();
+
+                Tasks[idTask].Arguments = argument;
+                Tasks[idTask].Type = type;
+                Tasks[idTask].Time = time;
+                Console.WriteLine("Success");
             }
-            Console.WriteLine("Task with such data does not exist");
+            else
+            {
+                Console.WriteLine("You entered an invalid value");
+            }
+
+            Save();
         }
 
-        public void DeleteTask(string message, DateTime date)
+
+        public void DeleteTask()
         {
+            SetTasks(TaskManager.Load());
+            ReadTasks();
+
+            Console.WriteLine();
+            Console.WriteLine("Enter the [Task id] you want to delete: ");
+            int idTask = int.Parse(Console.ReadLine());
+
+            if (idTask <= Tasks.LongCount())
+            {
+                Tasks.RemoveAt(idTask);
+            }
+            else
+            {
+                Console.WriteLine("You entered an invalid value");
+            }
+
+            Save();
+        }
+
+
+        public void RemoveObsoleteTasks()
+        {
+            SetTasks(TaskManager.Load());
+            DateTime now = DateTime.Now;
+            int remove = 0;
+
             for (int i = 0; i < Tasks.LongCount(); i++)
             {
-                if (Tasks[i].Message == message && Tasks[i].Time == date)
+                if (Tasks[i].Time < now || Tasks[i].State == TaskState.Performed)
                 {
                     Tasks.RemoveAt(i);
-                    Console.WriteLine("Success");
-                    return;
+                    remove++;
                 }
             }
-            Console.WriteLine("Task with such data does not exist");
+            Console.WriteLine("Removed " + remove + " task(s)");
+
+            Save();
         }
 
 
@@ -72,20 +119,21 @@ namespace TaskSystem
                 Console.WriteLine();
 
                 Console.WriteLine("+++++++++++++++++++++++");
+                Console.WriteLine("Task id: " + i);
                 Console.WriteLine("Type: " + Tasks[i].Type);
-                Console.WriteLine("Message: " + Tasks[i].Message);
+                Console.WriteLine("Message: " + Tasks[i].Arguments);
                 Console.WriteLine("Time: " + Tasks[i].Time);
                 Console.WriteLine("State: " + Tasks[i].State);
                 Console.WriteLine("+++++++++++++++++++++++");
-
-                Console.WriteLine();
             }
         }
+
 
         // Save/Load functions
         public void Save()
         {
-            File.WriteAllText(ToPath(), JsonConvert.SerializeObject(Tasks));
+            var settings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd hh:mm:ss" };
+            File.WriteAllText(ToPath(), JsonConvert.SerializeObject(Tasks, Formatting.Indented, settings));
         }
 
         public static List<Task> Load()
@@ -97,8 +145,5 @@ namespace TaskSystem
         {
             return @"../../../Tasks.json";
         }
-
-       
-          
     }
 }
