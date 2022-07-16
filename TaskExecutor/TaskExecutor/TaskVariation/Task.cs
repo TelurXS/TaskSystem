@@ -6,9 +6,9 @@ namespace TaskExecutor
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     public abstract class Task
     {
-        [JsonProperty("Type")] public abstract string Type { get; }
+        [JsonProperty("Type")] public abstract string Type { get; protected set; }
         [JsonProperty("Arguments")] public string Arguments { get; protected set; }
-        [JsonProperty("Date")] public DateTime ExecutionTime { get; protected set; }
+        [JsonProperty("Time")] public DateTime ExecutionTime { get; protected set; }
         [JsonProperty("Condition")] public TaskState State { get; protected set; }
 
         [JsonIgnore] public Bitmap Icon { get; protected set; }
