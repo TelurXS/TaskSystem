@@ -32,6 +32,8 @@ namespace TaskSystem
                 {
                     case "1":
 
+                        manager.SetTasks(TaskManager.Load());
+
                         Console.Write("Enter note: ");
                         string message = Console.ReadLine();
 
@@ -63,6 +65,7 @@ namespace TaskSystem
 
                     case "5":
 
+                        manager.SetTasks(TaskManager.Load());
                         Console.Clear();
 
                         manager.ReadTasks();
