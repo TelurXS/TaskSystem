@@ -58,9 +58,9 @@ namespace TaskExecutor
             return false;
         }
 
-        public virtual string ShortDescription(int erraseFromIndex = 53) 
+        public virtual string ShortDescription(int erraseFromIndex = 44) 
         {
-            if (Arguments.Length <= 56)
+            if (Arguments.Length <= erraseFromIndex)
             {
                 return Arguments;
             }

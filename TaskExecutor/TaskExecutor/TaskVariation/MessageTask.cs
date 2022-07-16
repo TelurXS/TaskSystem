@@ -17,7 +17,7 @@ namespace TaskExecutor
         {
             if (State == TaskState.Awaiting)
             {
-                MessageBox.Show(Arguments, Type, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Arguments, Type, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
                 State = TaskState.Executed;
             }
             else throw new ArgumentException("Task can`t execute twise");
