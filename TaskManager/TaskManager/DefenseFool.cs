@@ -73,7 +73,7 @@ namespace TaskSystem
                 {
                     Console.WriteLine("You entered the wrong date or it is already in the past." +
                         " The date will be entered into the note 10 minutes later than the current one.");
-                    now.AddMinutes(10);
+                    now = now.AddMinutes(10);
                     return now;
                 }
 
