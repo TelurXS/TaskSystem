@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QeIiJTB0lU7B+r2EIQDaGsezl/WbHL4sNBG54QQ7yQ6aTYrbp4sTojXu1UOnaAwYF/OIHC0dmLx/xrFjkZR+tA==",
+  "dgSpecHash": "bcm8sPh1k+4waYXkisURl0cxvjDYnTy1X/zGMmZCfQUQB7ZYMroU2QHd0geZsWrXQ738V1jZudhSYtcGxiwJzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TurBIn\\Documents\\kr\\TaskSystem\\TaskManager\\TaskManager\\TaskManager.csproj",
+  "projectFilePath": "D:\\Projects\\Examen\\TaskSystem\\TaskManager\\TaskManager\\TaskManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\TurBIn\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

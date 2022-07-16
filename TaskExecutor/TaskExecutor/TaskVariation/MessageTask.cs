@@ -5,7 +5,7 @@ namespace TaskExecutor
     [JsonSubtypes.KnownSubType(typeof(MessageTask), nameof(MessageTask))]
     public class MessageTask : Task
     {
-        public override string Type { get; } = nameof(MessageTask);
+        public override string Type { get; protected set; } = nameof(MessageTask);
 
 
         public MessageTask(string arguments, DateTime executionTime) : base(arguments, executionTime) 

@@ -6,7 +6,7 @@ namespace TaskExecutor
     [JsonSubtypes.KnownSubType(typeof(OpenProgramTask), nameof(OpenProgramTask))]
     public class OpenProgramTask : Task
     {
-        public override string Type { get; } = nameof(OpenProgramTask);
+        public override string Type { get; protected set; } = nameof(OpenProgramTask);
 
         public OpenProgramTask(string arguments, DateTime executionTime) : base(arguments, executionTime)
         {
