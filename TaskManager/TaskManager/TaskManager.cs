@@ -126,6 +126,10 @@ namespace TaskSystem
                 Console.WriteLine("State: " + Tasks[i].State);
                 Console.WriteLine("+++++++++++++++++++++++");
             }
+            if (Tasks.LongCount() == 0)
+            {
+                Console.WriteLine("No current tasks");
+            }
         }
 
 

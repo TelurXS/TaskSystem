@@ -28,65 +28,53 @@ namespace TaskSystem
                 TaskManager manager = new TaskManager();
                 DefenseFool defenseFool = new DefenseFool();
 
-
-                if (choice == "1")
+                switch (choice)
                 {
-                    try
-                    {
-                        manager.SetTasks(TaskManager.Load());
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("json file created");
-                    }
+                    case "1":
 
-                    
-                    Console.Write("Enter note: ");
-                    string message = Console.ReadLine();
+                        Console.Write("Enter note: ");
+                        string message = Console.ReadLine();
 
-                    Console.WriteLine("Enter type:");
-                    string type = defenseFool.NewType();
+                        Console.WriteLine("Enter type:");
+                        string type = defenseFool.NewType();
 
-                    DateTime date = defenseFool.NewDate();
+                        DateTime date = defenseFool.NewDate();
 
-                    manager.AddTask(type ,message, date);
-                    manager.Save();
-                }
+                        manager.AddTask(type, message, date);
+                        manager.Save();
+                        break;
 
-                try
-                {
-                    manager.SetTasks(TaskManager.Load());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
+                    case "2":
 
-                    Console.WriteLine("Please create a task before working with data!");
-                    continue;
-                }
+                        manager.EditTask();
+                        break;
 
-                if (choice == "2")
-                {
-                    manager.EditTask();
-                }
-                else if (choice == "3")
-                {
-                    manager.DeleteTask();
-                }
-                else if (choice == "4")
-                {
-                    manager.RemoveObsoleteTasks();
-                }
-                else if (choice == "5")
-                {
-                    manager.SetTasks(TaskManager.Load());
+                    case "3":
 
-                    manager.ReadTasks();
-                }
-                else
-                {
-                    Console.WriteLine("Вы ввели неверное значение!");
-                    Console.Clear();
+                        manager.DeleteTask();
+                        break;
+
+                    case "4":
+
+                        Console.Clear();
+
+                        manager.RemoveObsoleteTasks();
+                        break;
+
+                    case "5":
+
+                        Console.Clear();
+
+                        manager.ReadTasks();
+                        break;
+
+                    default:
+
+                        Console.WriteLine("You entered an invalid value");
+                        Console.Clear();
+
+                        break;
+
                 }
             }
         }
