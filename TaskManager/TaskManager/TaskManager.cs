@@ -47,11 +47,11 @@ namespace TaskSystem
 
             if (idTask <= Tasks.LongCount())
             {
-                Console.Write("Enter new note: ");
-                string argument = Console.ReadLine();
-
                 Console.WriteLine("Enter new type:");
                 string type = defenseFool.NewType();
+
+                Console.Write("Enter new argument: ");
+                string argument = Console.ReadLine();
 
                 DateTime time = defenseFool.NewDate();
 
@@ -121,7 +121,7 @@ namespace TaskSystem
                 Console.WriteLine("+++++++++++++++++++++++");
                 Console.WriteLine("Task id: " + i);
                 Console.WriteLine("Type: " + Tasks[i].Type);
-                Console.WriteLine("Message: " + Tasks[i].Arguments);
+                Console.WriteLine("Arguments: " + Tasks[i].Arguments);
                 Console.WriteLine("Time: " + Tasks[i].Time);
                 Console.WriteLine("State: " + Tasks[i].State);
                 Console.WriteLine("+++++++++++++++++++++++");
@@ -136,7 +136,7 @@ namespace TaskSystem
         // Save/Load functions
         public void Save()
         {
-            var settings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd hh:mm:ss" };
+            var settings = new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd HH:mm:ss" };
             File.WriteAllText(ToPath(), JsonConvert.SerializeObject(Tasks, Formatting.Indented, settings));
         }
 

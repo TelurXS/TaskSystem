@@ -34,11 +34,11 @@ namespace TaskSystem
 
                         manager.SetTasks(TaskManager.Load());
 
-                        Console.Write("Enter note: ");
-                        string message = Console.ReadLine();
-
                         Console.WriteLine("Enter type:");
                         string type = defenseFool.NewType();
+
+                        Console.Write("Enter argument: ");
+                        string message = Console.ReadLine();
 
                         DateTime date = defenseFool.NewDate();
 
@@ -77,7 +77,6 @@ namespace TaskSystem
                         Console.Clear();
 
                         break;
-
                 }
             }
         }
