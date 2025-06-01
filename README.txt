@@ -1,21 +1,21 @@
 Структура Task`a:
 {
-    "Type":"тип задания",
-    "Arguments":"аргуиент исполнения",
-    "Time":"дата и время исполнения",
+    "Type":"тип завдання",
+    "Arguments":"аргументи виконання",
+    "Time":"дата та час виконання",
     "State": 0, 
 }
 
 State:
-    0 - Ожидает исполнения
-    1 - Выполнен
+    0 - Очікує виконання
+    1 - Виконано
 
-Типа заданий и их действия:
+Типи завданнь та їх дії:
 	(Готово)
-	- MessageTask - открывает диалоговое окно с сообщением (Arguments: "сообщение")
-	- SoundAlertTask - проигрывает определённый звук в формате .wav (Arguments: "путь/к/звуку.wav")
-	- OpenProgramTask - отрывает определённую программу (Arguments: "путь/к/программе.exe")
-	- SoundAndMessageTask - сместь MessageTask и SoundAlertTask (Arguments: "путь/к/звуку.wav|сообщение")
+	- MessageTask - відкриває діалогове вікно з повідомленням (Arguments: "повідомлення")
+	- SoundAlertTask - програє певний звук у форматі .wav (Arguments: "шлях/до/звуку.wav")
+	- OpenProgramTask - відкриває певну програму (Arguments: "шлях/до/програми.exe")
+	- SoundAndMessageTask - суміш MessageTask та SoundAlertTask (Arguments: "шлях/до/завдання.wav|повідомлення")
 	
 	(Концепт)
 	- null
